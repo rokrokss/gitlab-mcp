@@ -9,7 +9,7 @@ await build({
   platform: "node",
   target: "node18",
   format: "cjs",
-  outfile: "build/index.js",
+  outfile: "build/index.cjs",
   define: {
     __PACKAGE_VERSION__: JSON.stringify(pkg.version),
   },
@@ -19,5 +19,5 @@ await build({
   external: ["open"],
 });
 
-chmodSync("build/index.js", "755");
-console.log("Build complete: build/index.js");
+chmodSync("build/index.cjs", "755");
+console.log("Build complete: build/index.cjs");

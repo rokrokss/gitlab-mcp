@@ -23,4 +23,4 @@ EXPOSE 3002
 
 RUN npm ci --ignore-scripts --omit-dev
 
-ENTRYPOINT ["node", "build/index.js"]
+ENTRYPOINT ["node", "build/index.cjs"]

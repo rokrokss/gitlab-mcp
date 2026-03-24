@@ -113,7 +113,7 @@ jobs:
       run: |
         docker build -t mcp-gitlab-test .
         echo "Verifying Docker image contains built files..."
-        docker run --rm --entrypoint "" mcp-gitlab-test ls -la build/index.js
+        docker run --rm --entrypoint "" mcp-gitlab-test ls -la build/index.cjs
         echo "Docker build verification passed"
 
   code-quality:
