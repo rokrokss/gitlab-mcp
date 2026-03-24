@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // Parse CLI arguments
 const args = process.argv.slice(2);
 const cliArgs: Record<string, string> = {};
@@ -300,18 +298,8 @@ enum TransportMode {
 /**
  * Read version from package.json
  */
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const packageJsonPath = path.resolve(__dirname, "../package.json");
-let SERVER_VERSION = "unknown";
-try {
-  if (fs.existsSync(packageJsonPath)) {
-    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
-    SERVER_VERSION = packageJson.version || SERVER_VERSION;
-  }
-} catch {
-  // Intentionally ignored: version read failure is non-critical
-}
+declare const __PACKAGE_VERSION__: string;
+const SERVER_VERSION = typeof __PACKAGE_VERSION__ !== "undefined" ? __PACKAGE_VERSION__ : "unknown";
 
 /**
  * Create a new MCP Server instance with request handlers registered.
